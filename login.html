@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Attendance - Faculty Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <!-- Left Section -->
+        <div class="login-left">
+
+            <div class="brand">
+                <div class="brand-icon" aria-hidden="true"></div>
+
+                <div>
+                    <h1>
+                        BeAccurate
+                    </h1>
+                    <p>Smart Attendance Management</p>
+                </div>
+            </div>
+
+            <div class="welcome-content">
+
+                <h2>
+                    Welcome to<br>
+                    <span>AI Student Attendance</span>
+                </h2>
+
+                <p>
+                    Manage student attendance efficiently using
+                    AI-powered face recognition technology.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h3>AI Face Recognition</h3>
+                            <p>Automated student identification</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h3>Real-Time Attendance</h3>
+                            <p>Track attendance instantly</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h3>Detailed Reports</h3>
+                            <p>View and manage attendance records</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Section -->
+        <div class="login-right">
+
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="theme-toggle-icon" aria-hidden="true">&#9790;</span>
+                <span class="theme-toggle-text">Dark mode</span>
+            </button>
+
+            <div class="login-card">
+
+                <div class="login-header">
+
+                    <div class="login-icon" aria-hidden="true"></div>
+
+                    <h2>Faculty Login</h2>
+
+                    <p>
+                        Sign in to access your attendance dashboard
+                    </p>
+
+                </div>
+
+
+                <form action="#" method="POST">
+
+                    <!-- Faculty ID -->
+                    <div class="form-group">
+
+                        <label for="faculty-id">
+                            Faculty ID / Email
+                        </label>
+
+                        <input
+                            type="text"
+                            id="faculty-id"
+                            name="faculty_id"
+                            placeholder="Enter your faculty ID or email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <div class="password-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Remember Me -->
+                    <div class="remember">
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="remember"
+                            >
+
+                            <span>Remember me</span>
+                        </label>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+                        Sign In
+                    </button>
+
+                </form>
+
+
+                <div class="login-footer">
+
+                    <p>
+                        Authorized faculty members only
+                    </p>
+
+                    <span>
+                        AI Attendance Management System
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeToggleText = document.querySelector('.theme-toggle-text');
+        const themeToggleIcon = document.querySelector('.theme-toggle-icon');
+
+        function setTheme(isDark) {
+            document.body.classList.toggle('dark-mode', isDark);
+            themeToggle.setAttribute('aria-pressed', String(isDark));
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeToggleText.textContent = isDark ? 'Light mode' : 'Dark mode';
+            themeToggleIcon.innerHTML = isDark ? '&#9728;' : '&#9790;';
+        }
+
+        setTheme(localStorage.getItem('attendance-theme') === 'dark');
+
+        themeToggle.addEventListener('click', function () {
+            const isDark = !document.body.classList.contains('dark-mode');
+            setTheme(isDark);
+            localStorage.setItem('attendance-theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+
+</body>
+</html>
